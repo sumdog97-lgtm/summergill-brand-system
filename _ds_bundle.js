@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"SummergillDesignSystem_2a6cb4","components":[{"name":"CheckList","sourcePath":"components/content/CheckList.jsx"},{"name":"FaqItem","sourcePath":"components/content/FaqItem.jsx"},{"name":"FaqList","sourcePath":"components/content/FaqItem.jsx"},{"name":"GridPanel","sourcePath":"components/content/GridPanel.jsx"},{"name":"GridCell","sourcePath":"components/content/GridPanel.jsx"},{"name":"SectionHeader","sourcePath":"components/content/SectionHeader.jsx"},{"name":"Stat","sourcePath":"components/content/Stat.jsx"},{"name":"StatRow","sourcePath":"components/content/Stat.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Eyebrow","sourcePath":"components/core/Eyebrow.jsx"},{"name":"Icon","sourcePath":"components/core/Icon.jsx"},{"name":"Logo","sourcePath":"components/core/Logo.jsx"},{"name":"Tag","sourcePath":"components/core/Tag.jsx"},{"name":"ChoiceChip","sourcePath":"components/forms/ChoiceChip.jsx"},{"name":"ChoiceGroup","sourcePath":"components/forms/ChoiceChip.jsx"},{"name":"TextField","sourcePath":"components/forms/TextField.jsx"},{"name":"LaptopFrame","sourcePath":"components/marketing/DeviceShowcase.jsx"},{"name":"PhoneFrame","sourcePath":"components/marketing/DeviceShowcase.jsx"},{"name":"TabletFrame","sourcePath":"components/marketing/DeviceShowcase.jsx"},{"name":"DeviceShowcase","sourcePath":"components/marketing/DeviceShowcase.jsx"},{"name":"PriceCard","sourcePath":"components/marketing/PriceCard.jsx"},{"name":"PromoBanner","sourcePath":"components/marketing/PromoBanner.jsx"},{"name":"Hi","sourcePath":"components/marketing/PromoBanner.jsx"}],"sourceHashes":{"components/content/CheckList.jsx":"96e4e3ba5da7","components/content/FaqItem.jsx":"25ae45abf62f","components/content/GridPanel.jsx":"53222e6a9b97","components/content/SectionHeader.jsx":"3e1d598de650","components/content/Stat.jsx":"71912cddddb9","components/core/Button.jsx":"53ffb6dc91fc","components/core/Eyebrow.jsx":"ce3938563990","components/core/Icon.jsx":"4274bffa6f1a","components/core/Logo.jsx":"c561955a5839","components/core/Tag.jsx":"3d1496b84297","components/forms/ChoiceChip.jsx":"53eda663381d","components/forms/TextField.jsx":"833684990a65","components/marketing/DeviceShowcase.jsx":"6c52f47025d2","components/marketing/PriceCard.jsx":"fca741661f09","components/marketing/PromoBanner.jsx":"9892b1380601","ui_kits/website/Closing.jsx":"1e90ded67c22","ui_kits/website/Header.jsx":"a0401b082371","ui_kits/website/Hero.jsx":"9edf7d0b2b1e","ui_kits/website/Sections.jsx":"36fbd43dcca6","ui_kits/website/data.js":"2b79199136ca"},"inlinedExternals":[],"unexposedExports":[{"name":"iconNames","sourcePath":"components/core/Icon.jsx"}]} */
+/* @ds-bundle: {"format":4,"namespace":"SummergillDesignSystem_2a6cb4","components":[{"name":"CheckList","sourcePath":"components/content/CheckList.jsx"},{"name":"FaqItem","sourcePath":"components/content/FaqItem.jsx"},{"name":"FaqList","sourcePath":"components/content/FaqItem.jsx"},{"name":"GridPanel","sourcePath":"components/content/GridPanel.jsx"},{"name":"GridCell","sourcePath":"components/content/GridPanel.jsx"},{"name":"SectionHeader","sourcePath":"components/content/SectionHeader.jsx"},{"name":"Stat","sourcePath":"components/content/Stat.jsx"},{"name":"StatRow","sourcePath":"components/content/Stat.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"Eyebrow","sourcePath":"components/core/Eyebrow.jsx"},{"name":"Icon","sourcePath":"components/core/Icon.jsx"},{"name":"Tag","sourcePath":"components/core/Tag.jsx"},{"name":"Wordmark","sourcePath":"components/core/Wordmark.jsx"},{"name":"ChoiceChip","sourcePath":"components/forms/ChoiceChip.jsx"},{"name":"ChoiceGroup","sourcePath":"components/forms/ChoiceChip.jsx"},{"name":"TextField","sourcePath":"components/forms/TextField.jsx"},{"name":"LaptopFrame","sourcePath":"components/marketing/DeviceShowcase.jsx"},{"name":"PhoneFrame","sourcePath":"components/marketing/DeviceShowcase.jsx"},{"name":"TabletFrame","sourcePath":"components/marketing/DeviceShowcase.jsx"},{"name":"DeviceShowcase","sourcePath":"components/marketing/DeviceShowcase.jsx"},{"name":"PriceCard","sourcePath":"components/marketing/PriceCard.jsx"},{"name":"PromoBanner","sourcePath":"components/marketing/PromoBanner.jsx"},{"name":"Hi","sourcePath":"components/marketing/PromoBanner.jsx"}],"sourceHashes":{"components/content/CheckList.jsx":"96e4e3ba5da7","components/content/FaqItem.jsx":"25ae45abf62f","components/content/GridPanel.jsx":"53222e6a9b97","components/content/SectionHeader.jsx":"3e1d598de650","components/content/Stat.jsx":"71912cddddb9","components/core/Button.jsx":"53ffb6dc91fc","components/core/Eyebrow.jsx":"ce3938563990","components/core/Icon.jsx":"4274bffa6f1a","components/core/Tag.jsx":"3d1496b84297","components/core/Wordmark.jsx":"e9a9f9d8723f","components/forms/ChoiceChip.jsx":"53eda663381d","components/forms/TextField.jsx":"833684990a65","components/marketing/DeviceShowcase.jsx":"6c52f47025d2","components/marketing/PriceCard.jsx":"fca741661f09","components/marketing/PromoBanner.jsx":"9892b1380601","ui_kits/website/Closing.jsx":"1e90ded67c22","ui_kits/website/Header.jsx":"bab2641fc393","ui_kits/website/Hero.jsx":"9edf7d0b2b1e","ui_kits/website/Sections.jsx":"36fbd43dcca6","ui_kits/website/data.js":"2b79199136ca"},"inlinedExternals":[],"unexposedExports":[{"name":"iconNames","sourcePath":"components/core/Icon.jsx"}]} */
 
 (() => {
 
@@ -491,71 +491,6 @@ function Button({
 Object.assign(__ds_scope, { Button });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Button.jsx", error: String((e && e.message) || e) }); }
 
-// components/core/Logo.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-const files = {
-  primary: {
-    name: 'summergill-primary',
-    ratio: 380 / 280
-  },
-  horizontal: {
-    name: 'summergill-horizontal',
-    ratio: 470 / 122
-  },
-  wordmark: {
-    name: 'summergill-wordmark',
-    ratio: 312 / 84
-  },
-  stacked: {
-    name: 'summergill-stacked',
-    ratio: 272 / 182
-  },
-  mark: {
-    name: 'summergill-mark',
-    ratio: 170 / 162
-  }
-};
-files.compact = files.wordmark;
-function Logo({
-  variant = 'primary',
-  tone = 'color',
-  iconStyle = 'cobalt',
-  height = 40,
-  base = 'assets/logo/',
-  alt = 'Summergill — Ideas | Systems | Growth',
-  style,
-  ...rest
-}) {
-  const prefix = base.endsWith('/') ? base : base + '/';
-  if (variant === 'app-icon' || variant === 'avatar') {
-    const w = variant === 'avatar' ? height * (142 / 144) : height * (150 / 148);
-    return /*#__PURE__*/React.createElement("img", _extends({
-      src: `${prefix}${variant}-${iconStyle}.png`,
-      alt: "Summergill",
-      style: {
-        display: 'block',
-        height,
-        width: Math.round(w),
-        ...style
-      }
-    }, rest));
-  }
-  const f = files[variant] || files.primary;
-  return /*#__PURE__*/React.createElement("img", _extends({
-    src: `${prefix}${f.name}${tone === 'white' ? '-white' : ''}.png`,
-    alt: alt,
-    style: {
-      display: 'block',
-      height,
-      width: Math.round(height * f.ratio),
-      ...style
-    }
-  }, rest));
-}
-Object.assign(__ds_scope, { Logo });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Logo.jsx", error: String((e && e.message) || e) }); }
-
 // components/core/Tag.jsx
 try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
@@ -597,6 +532,57 @@ function Tag({
 }
 Object.assign(__ds_scope, { Tag });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Tag.jsx", error: String((e && e.message) || e) }); }
+
+// components/core/Wordmark.jsx
+try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+const sizes = {
+  sm: {
+    fs: 13,
+    sq: 6
+  },
+  md: {
+    fs: 20,
+    sq: 10
+  },
+  lg: {
+    fs: 52,
+    sq: 14
+  }
+};
+function Wordmark({
+  size = 'md',
+  tone = 'ink',
+  squareColor,
+  style,
+  ...rest
+}) {
+  const s = sizes[size] || sizes.md;
+  const color = tone === 'white' ? '#fff' : 'var(--color-ink)';
+  return /*#__PURE__*/React.createElement("span", _extends({
+    style: {
+      fontFamily: 'var(--font-display)',
+      fontWeight: 700,
+      fontSize: s.fs,
+      letterSpacing: size === 'lg' ? '-0.02em' : '-0.025em',
+      color,
+      display: 'inline-flex',
+      alignItems: 'baseline',
+      gap: s.sq * 0.6,
+      lineHeight: 1.4,
+      ...style
+    }
+  }, rest), "SUMMERGILL", /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: 'inline-block',
+      width: s.sq,
+      height: s.sq,
+      background: squareColor || 'var(--color-brand)'
+    }
+  }));
+}
+Object.assign(__ds_scope, { Wordmark });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Wordmark.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/ChoiceChip.jsx
 try { (() => {
@@ -1269,7 +1255,7 @@ Object.assign(window, {
 // ui_kits/website/Header.jsx
 try { (() => {
 const {
-  Logo: HLogo,
+  Wordmark: HWordmark,
   Button: HButton,
   Icon: HIcon,
   PromoBanner,
@@ -1360,14 +1346,7 @@ function Header({
     style: {
       textDecoration: 'none'
     }
-  }, /*#__PURE__*/React.createElement(HLogo, {
-    variant: "wordmark",
-    height: scrolled ? 34 : 40,
-    base: "../../assets/logo/",
-    style: {
-      transition: 'height .3s, width .3s'
-    }
-  })), /*#__PURE__*/React.createElement("nav", {
+  }, /*#__PURE__*/React.createElement(HWordmark, null)), /*#__PURE__*/React.createElement("nav", {
     className: "sg-desk",
     style: {
       alignItems: 'center',
@@ -1464,11 +1443,8 @@ function Footer() {
       borderBottom: '1px solid rgb(255 255 255 / .15)',
       paddingBottom: 32
     }
-  }, /*#__PURE__*/React.createElement(HLogo, {
-    variant: "horizontal",
-    tone: "white",
-    height: 44,
-    base: "../../assets/logo/"
+  }, /*#__PURE__*/React.createElement(HWordmark, {
+    tone: "white"
   }), /*#__PURE__*/React.createElement(HButton, {
     size: "sm",
     href: wa(defaultEnquiry),
@@ -2289,9 +2265,9 @@ __ds_ns.Eyebrow = __ds_scope.Eyebrow;
 
 __ds_ns.Icon = __ds_scope.Icon;
 
-__ds_ns.Logo = __ds_scope.Logo;
-
 __ds_ns.Tag = __ds_scope.Tag;
+
+__ds_ns.Wordmark = __ds_scope.Wordmark;
 
 __ds_ns.ChoiceChip = __ds_scope.ChoiceChip;
 

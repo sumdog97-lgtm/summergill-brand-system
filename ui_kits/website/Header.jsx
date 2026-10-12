@@ -1,4 +1,4 @@
-const { Logo: HLogo, Button: HButton, Icon: HIcon, PromoBanner, Hi } = window.SummergillDesignSystem_2a6cb4;
+const { Wordmark: HWordmark, Button: HButton, Icon: HIcon, PromoBanner, Hi } = window.SummergillDesignSystem_2a6cb4;
 
 const navItems = [{ href: '#work', label: 'Our work' }, { href: '#pricing', label: 'Pricing' }, { href: '#guarantee', label: 'Our promise' }, { href: '#faq', label: 'FAQ' }];
 
@@ -20,7 +20,7 @@ function Header({ scrolled, onNav }) {
       )}
       <div style={{ borderBottom: '1px solid var(--color-line)', background: 'rgb(255 255 255 / .95)', backdropFilter: 'blur(8px)', boxShadow: scrolled ? 'var(--shadow-header)' : 'none', transition: 'all .3s' }}>
         <div className="sg-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16, paddingTop: scrolled ? 10 : 16, paddingBottom: scrolled ? 10 : 16, transition: 'all .3s' }}>
-          <a href="#top" onClick={(e) => go(e, '#top')} style={{ textDecoration: 'none' }}><HLogo variant="wordmark" height={scrolled ? 34 : 40} base="../../assets/logo/" style={{ transition: 'height .3s, width .3s' }} /></a>
+          <a href="#top" onClick={(e) => go(e, '#top')} style={{ textDecoration: 'none' }}><HWordmark /></a>
           <nav className="sg-desk" style={{ alignItems: 'center', gap: 28 }}>{navItems.map((n) => <NavLink key={n.href} href={n.href} onNav={go}>{n.label}</NavLink>)}</nav>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
             <HButton className="sg-sm-up" size="sm" icon="whatsapp" href={wa(defaultEnquiry)} target="_blank" rel="noopener">WhatsApp us</HButton>
@@ -46,7 +46,7 @@ function Footer() {
     <footer style={{ background: 'var(--color-ink)', padding: '48px 0', color: '#fff' }}>
       <div className="sg-container">
         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 24, borderBottom: '1px solid rgb(255 255 255 / .15)', paddingBottom: 32 }}>
-          <HLogo variant="horizontal" tone="white" height={44} base="../../assets/logo/" />
+          <HWordmark tone="white" />
           <HButton size="sm" href={wa(defaultEnquiry)} target="_blank">WhatsApp {brand.whatsappDisplay}</HButton>
         </div>
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', gap: 8, paddingTop: 24, fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.025em', textTransform: 'uppercase', color: 'rgb(255 255 255 / .45)' }}>

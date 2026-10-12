@@ -16,12 +16,11 @@ The brand is a **Swiss / engineered** system: white paper, near-black ink, **one
 - `ui_kits/website/` — interactive recreation of summergill.co.uk (`index.html`, `Header.jsx`, `Hero.jsx` incl. Switchboard, `Sections.jsx`, `Closing.jsx`, `data.js`).
 - `slides/` — SOP-deck slide types (cover, pipeline, two-column, table, closer) at 1280×720.
 - `guidelines/` — foundation specimen cards (Colors, Type, Spacing, Brand).
-- `assets/logo/` — full logo system as PNGs (see Logo below). `assets/` also holds `favicon.png`, `apple-touch-icon.png` (cobalt app icon), `og.jpg` (still shows the old typeset wordmark), `proof/` (client screenshots).
-- `uploads/SUMMERGILL Logo Suite Presentation.png` — the source logo board all logo files were cut from.
+- `assets/` — `favicon.svg/png`, `apple-touch-icon.png`, `og.jpg`, `proof/` (client screenshots at desktop/tablet/mobile).
 - `SKILL.md` — Agent Skill entry.
 
 ## Components
-- **core/** — `Button`, `Icon` (+ `iconNames`), `Logo`, `Eyebrow`, `Tag`
+- **core/** — `Button`, `Icon` (+ `iconNames`), `Wordmark`, `Eyebrow`, `Tag`
 - **forms/** — `ChoiceChip`, `ChoiceGroup`, `TextField`
 - **content/** — `SectionHeader`, `GridPanel`, `GridCell`, `Stat`, `StatRow`, `FaqItem`, `FaqList`, `CheckList`
 - **marketing/** — `PromoBanner` (+ `Hi`), `PriceCard`, `DeviceShowcase`, `LaptopFrame`, `PhoneFrame`, `TabletFrame`
@@ -60,7 +59,7 @@ The source has no component library — it's 12 Astro section components. These 
 - **Hover:** colour shift only — primary bg → brand-deep; outline border+text → cobalt; nav links ink/70 → cobalt; chips border+text → cobalt. No lift, no scale.
 - **Press/selected:** chips flip to solid ink with white text (`aria-pressed`). Burger button `active:bg-surface`. Focus: cobalt border + 2px cobalt/30 ring.
 - **Layout:** 1152px container (`max-w-6xl`), 16/24px gutters, sections 80px (mobile) / 112px (≥640) vertical padding. Copy blocks capped at 672px. Fixed header + promo strip; `scroll-padding-top: 6rem`.
-- **Motifs:** the cobalt **square** (deck bullets, Switchboard hub); `[ bracketed ]` mono eyebrows; dot-grid schematics ("FIG. 01 —"); engineering-drawing feel.
+- **Motifs:** the cobalt **square** (wordmark full-stop, deck bullets, Switchboard hub); `[ bracketed ]` mono eyebrows; dot-grid schematics ("FIG. 01 —"); engineering-drawing feel.
 - **Imagery:** only real client-site screenshots inside CSS device frames, at desktop/tablet/mobile. No stock photos, no illustrations, no people.
 
 ## ICONOGRAPHY
@@ -70,16 +69,7 @@ The source has no component library — it's 12 Astro section components. These 
 - WhatsApp icon leads nearly every primary CTA.
 - No icon font, no PNG icons, no CDN library. **No emoji.** Unicode used typographically: `→` (deck titles), `·` separators, `×` (6× winner), `+` as the FAQ toggle (mono, rotates 45°).
 
-## Logo
-Source: `uploads/SUMMERGILL Logo Suite Presentation.png` (supersedes the earlier "Blue Brand System" board). A two-stroke geometric **S-mark** (navy → cobalt → periwinkle), the **SUMMERGILL** wordmark ("SUMMER" navy, "GILL" periwinkle) and the strapline **IDEAS | SYSTEMS | GROWTH**. All files in `assets/logo/`:
-- **Primary (master):** mark above wordmark above strapline — `summergill-primary.png` (+ `-white`, `-on-navy`, `-on-cobalt`).
-- **Horizontal:** mark | divider | wordmark + strapline — `summergill-horizontal.png` (+ `-white`, `-on-navy`, `-on-light`).
-- **Wordmark:** mark + SUMMERGILL, no strapline — site header — `summergill-wordmark.png` (+ `-white`, `-on-navy`).
-- **Stacked compact:** small mark, wordmark, rule, strapline — `summergill-stacked.png` (+ `-white`, `-on-navy`).
-- **Mark:** `summergill-mark.png` (+ `-white`).
-- **App icons** `app-icon-white|cobalt|navy|soft.png` (cobalt = favicon) and **avatars** `avatar-navy|cobalt|white|soft.png`.
-- Plain-named files are transparent PNGs for light grounds; `-white` are solid-white knockouts I derived (the board shows two-tone white/periwinkle on dark — use the `-on-navy`/`-on-cobalt` tiles when that matters). Use via `<Logo variant tone height base />`.
-- Cut from a 1536×1024 board (largest ~470px wide). **Request vector masters for print/large display.**
+- Logo: there is no drawn logo — the brand mark is the typeset wordmark **SUMMERGILL** + cobalt square (see `Wordmark`). The app icon is a blocky "S" (`assets/favicon.svg`).
 
 ## Fonts
 All three families are Google Fonts, loaded exactly as production does via `tokens/fonts.css` (`@import` from fonts.googleapis.com). No local binaries were in the repo, so no `@font-face` files are shipped — consumers need network access to Google Fonts.
