@@ -90,6 +90,22 @@
         "message": "<Icon> doesn't accept that prop. Declared props: name, size, strokeWidth."
       },
       {
+        "selector": "JSXOpeningElement[name.name='Logo'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|tone|iconStyle|height|base|key|ref|className|style|children)$/]",
+        "message": "<Logo> doesn't accept that prop. Declared props: variant, tone, iconStyle, height, base."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Logo'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:primary|horizontal|wordmark|compact|stacked|mark|app-icon|avatar)$/]",
+        "message": "<Logo> variant must be one of 'primary' | 'horizontal' | 'wordmark' | 'compact' | 'stacked' | 'mark' | 'app-icon' | 'avatar'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Logo'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:color|white)$/]",
+        "message": "<Logo> tone must be one of 'color' | 'white'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Logo'] > JSXAttribute[name.name='iconStyle'] > Literal[value!=/^(?:cobalt|white|navy|soft)$/]",
+        "message": "<Logo> iconStyle must be one of 'cobalt' | 'white' | 'navy' | 'soft'."
+      },
+      {
         "selector": "JSXOpeningElement[name.name='PriceCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:badge|title|build|wasBuild|buildNote|monthly|wasMonthly|annual|note|cta|ctaHref|style|key|ref|className|style|children)$/]",
         "message": "<PriceCard> doesn't accept that prop. Declared props: badge, title, build, wasBuild, buildNote, monthly, wasMonthly, annual, note, cta, ctaHref, style."
       },
@@ -124,18 +140,6 @@
       {
         "selector": "JSXOpeningElement[name.name='TextField'] > JSXAttribute > JSXIdentifier[name!=/^(?:multiline|rows|key|ref|className|style|children)$/]",
         "message": "<TextField> doesn't accept that prop. Declared props: multiline, rows."
-      },
-      {
-        "selector": "JSXOpeningElement[name.name='Wordmark'] > JSXAttribute > JSXIdentifier[name!=/^(?:size|tone|squareColor|key|ref|className|style|children)$/]",
-        "message": "<Wordmark> doesn't accept that prop. Declared props: size, tone, squareColor."
-      },
-      {
-        "selector": "JSXOpeningElement[name.name='Wordmark'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm|md|lg)$/]",
-        "message": "<Wordmark> size must be one of 'sm' | 'md' | 'lg'."
-      },
-      {
-        "selector": "JSXOpeningElement[name.name='Wordmark'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:ink|white)$/]",
-        "message": "<Wordmark> tone must be one of 'ink' | 'white'."
       }
     ]
   },
@@ -175,6 +179,9 @@
       "Icon": {
         "replaces": []
       },
+      "Logo": {
+        "replaces": []
+      },
       "PriceCard": {
         "replaces": []
       },
@@ -191,9 +198,6 @@
         "replaces": []
       },
       "TextField": {
-        "replaces": []
-      },
-      "Wordmark": {
         "replaces": []
       }
     },

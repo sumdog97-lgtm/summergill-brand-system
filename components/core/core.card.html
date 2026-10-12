@@ -1,4 +1,4 @@
-<!-- @dsCard group="Components" viewport="700x420" name="Core" subtitle="Button, Icon, Wordmark, Eyebrow, Tag" -->
+<!-- @dsCard group="Components" viewport="700x420" name="Core" subtitle="Button, Icon, Logo, Eyebrow, Tag" -->
 <!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
@@ -8,12 +8,12 @@
 <script type="text/babel">
 const NS = window.SummergillDesignSystem_2a6cb4;
 
-const { Button, Wordmark, Eyebrow, Tag, Icon } = NS;
+const { Button, Logo, Eyebrow, Tag, Icon } = NS;
 function App(){return (<div style={{display:'flex',flexDirection:'column',gap:22}}>
 <div><div className="lbl">Button</div><div style={{display:'flex',gap:12,flexWrap:'wrap',alignItems:'center'}}>
 <Button icon="whatsapp">WhatsApp us about yours</Button><Button variant="outline" iconRight="arrow">See our work</Button><Button size="sm" icon="whatsapp">WhatsApp us</Button><Button size="sm" disabled>Disabled</Button></div></div>
-<div style={{background:'var(--color-ink)',padding:16,display:'flex',gap:12,alignItems:'center'}}><Button size="md" icon="whatsapp">Claim a build slot</Button><Button size="md" variant="outline-dark">Outline on ink</Button><Wordmark tone="white" style={{marginLeft:'auto'}}/></div>
-<div style={{display:'flex',gap:28,alignItems:'center'}}><Wordmark/><Eyebrow>02 / Our work</Eyebrow><Eyebrow bracket>Hand-built websites · UK based</Eyebrow></div>
+<div style={{background:'var(--color-ink)',padding:16,display:'flex',gap:12,alignItems:'center'}}><Button size="md" icon="whatsapp">Claim a build slot</Button><Button size="md" variant="outline-dark">Outline on ink</Button><Logo variant="wordmark" tone="white" height={34} base="../../assets/logo/" style={{marginLeft:'auto'}}/></div>
+<div style={{display:'flex',gap:28,alignItems:'center'}}><Logo variant="wordmark" height={34} base="../../assets/logo/"/><Eyebrow>02 / Our work</Eyebrow><Eyebrow bracket>Hand-built websites · UK based</Eyebrow></div>
 <div style={{display:'flex',gap:8,alignItems:'center',flexWrap:'wrap'}}><Tag>Sports &amp; coaching</Tag><Tag>Booking-led</Tag><Tag solid>Limited promotion — 5 slots</Tag>
 <span style={{display:'grid',placeItems:'center',width:44,height:44,background:'var(--color-brand)',color:'#fff',marginLeft:12}}><Icon name="shield"/></span><Icon name="whatsapp" size={24}/><Icon name="check" size={24} style={{color:'var(--color-brand)'}}/></div>
 </div>);}
