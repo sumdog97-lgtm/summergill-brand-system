@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #ffffff; --surface: #f5f5f3; --ink: #0a0a0a;
+    --brand: #1d4ed8; --brand-soft: #9db4ff; --line: #e5e5e2;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @page { size: A4 landscape; margin: 0; }
+  body { font-family: 'Inter', sans-serif; color: var(--ink); }
+  .slide {
+    width: 297mm; height: 209.5mm; padding: 16mm 18mm;
+    page-break-after: always; position: relative; background: var(--paper);
+    display: flex; flex-direction: column; overflow: hidden;
+  }
+  .slide.dark { background: var(--ink); color: #fff; }
+  .slide.cobalt { background: var(--brand); color: #fff; }
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+  .display { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+  .eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 9pt; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brand); font-weight: 500; }
+  .dark .eyebrow, .cobalt .eyebrow { color: var(--brand-soft); }
+  .cobalt .eyebrow { color: rgba(255,255,255,0.75); }
+  h1 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 34pt; letter-spacing: -0.02em; line-height: 1.02; margin-top: 6mm; }
+  h2 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 22pt; letter-spacing: -0.02em; margin-top: 4mm; margin-bottom: 7mm; }
+  .wordmark { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 13pt; letter-spacing: -0.01em; }
+  .sq { display: inline-block; width: 8px; height: 8px; background: var(--brand); margin-left: 4px; }
+  .footer { position: absolute; bottom: 10mm; left: 18mm; right: 18mm; display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 7.5pt; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(10,10,10,0.4); border-top: 1px solid var(--line); padding-top: 3mm; }
+  .dark .footer, .cobalt .footer { color: rgba(255,255,255,0.45); border-top-color: rgba(255,255,255,0.15); }
+  .cols { display: flex; gap: 8mm; flex: 1; }
+  .col { flex: 1; }
+  .card { border: 1px solid var(--line); padding: 6mm; margin-bottom: 4mm; }
+  .dark .card { border-color: rgba(255,255,255,0.18); }
+  .card h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 12.5pt; margin-bottom: 2mm; }
+  .card p, .card li { font-size: 9.5pt; line-height: 1.5; color: rgba(10,10,10,0.75); }
+  .dark .card p, .dark .card li { color: rgba(255,255,255,0.75); }
+  ul.check { list-style: none; }
+  ul.check li { padding-left: 6mm; position: relative; margin-bottom: 2.2mm; font-size: 9.5pt; line-height: 1.45; color: rgba(10,10,10,0.8); }
+  ul.check li::before { content: ''; position: absolute; left: 0; top: 1.2mm; width: 2.6mm; height: 2.6mm; border: 1.2px solid var(--brand); }
+  .dark ul.check li { color: rgba(255,255,255,0.8); }
+  .dark ul.check li::before { border-color: var(--brand-soft); }
+  ul.done li::before { background: var(--brand); }
+  .stage-num { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 30pt; color: var(--brand); line-height: 1; }
+  .pipeline { display: flex; gap: 4mm; flex: 1; align-items: stretch; }
+  .pipe-stage { flex: 1; border: 1px solid var(--line); padding: 5mm 4mm; display: flex; flex-direction: column; }
+  .pipe-stage .n { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18pt; color: var(--brand); }
+  .pipe-stage .t { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 11pt; margin: 2mm 0; }
+  .pipe-stage .d { font-size: 8pt; line-height: 1.45; color: rgba(10,10,10,0.65); }
+  .pipe-stage .sla { margin-top: auto; padding-top: 3mm; font-family: 'IBM Plex Mono', monospace; font-size: 7pt; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brand); }
+  .rule { height: 1px; background: var(--line); margin: 5mm 0; }
+  .big-stat { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20pt; }
+  .note { font-family: 'IBM Plex Mono', monospace; font-size: 8pt; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(10,10,10,0.5); margin-top: 4mm; }
+  .dark .note { color: rgba(255,255,255,0.5); }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+  th { font-family: 'IBM Plex Mono', monospace; font-size: 8pt; letter-spacing: 0.12em; text-transform: uppercase; text-align: left; color: rgba(10,10,10,0.5); padding: 2.5mm 3mm; border-bottom: 1px solid var(--ink); }
+  td { padding: 2.8mm 3mm; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.45; }
+  td.mono { font-size: 8.5pt; }
+  .accent { color: var(--brand); font-weight: 600; }
+  .dark .accent { color: var(--brand-soft); }
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1 · COVER -->
+<div class="slide dark">
+  <div class="mono" style="font-size:9pt; letter-spacing:0.2em; color:rgba(255,255,255,0.5);">INTERNAL ONLY · NOT FOR CLIENTS</div>
+  <div style="margin-top:auto;">
+    <div class="display" style="font-size:52pt; letter-spacing:-0.02em;">SUMMERGILL<span style="display:inline-block;width:14px;height:14px;background:var(--brand);margin-left:8px;"></span></div>
+    <h1 style="font-size:24pt; color:rgba(255,255,255,0.85); margin-top:8mm;">Sale → Onboarding → Care<br>Standard Operating Procedures</h1>
+  </div>
+  <div style="margin-top:auto;" class="mono">
+    <span style="color:var(--brand-soft); font-size:9pt; letter-spacing:0.15em;">V1.0 · JUNE 2026 · OWNERS: SUMMERS &amp; GILL</span>
+  </div>
+  <div class="footer"><span>Summergill · A Rippers Golf Ltd brand</span><span>01</span></div>
+</div>
+
+<!-- SLIDE 2 · PIPELINE -->
+<div class="slide">
+  <div class="eyebrow">The pipeline</div>
+  <h2>Enquiry to recurring revenue, in eight stages.</h2>
+  <div class="pipeline">
+    <div class="pipe-stage"><div class="n">01</div><div class="t">Enquiry</div><div class="d">WhatsApp lands. Qualify honestly.</div><div class="sla">Reply same day</div></div>
+    <div class="pipe-stage"><div class="n">02</div><div class="t">Close</div><div class="d">Quote, agreement, promo slot check.</div><div class="sla">48h follow-up</div></div>
+    <div class="pipe-stage"><div class="n">03</div><div class="t">Paid</div><div class="d">Build invoice settled before work starts.</div><div class="sla">7-day terms</div></div>
+    <div class="pipe-stage"><div class="n">04</div><div class="t">Intake</div><div class="d">Collect every business fact once.</div><div class="sla">Day 1–2</div></div>
+    <div class="pipe-stage"><div class="n">05</div><div class="t">Build</div><div class="d">To portfolio standard. Noindexed.</div><div class="sla">Day 2–10</div></div>
+    <div class="pipe-stage"><div class="n">06</div><div class="t">Approve</div><div class="d">Client sign-off in writing.</div><div class="sla">Day 10–12</div></div>
+    <div class="pipe-stage"><div class="n">07</div><div class="t">Launch</div><div class="d">Domain, DNS, index, mandate.</div><div class="sla">Day 12–14</div></div>
+    <div class="pipe-stage"><div class="n">08</div><div class="t">Care</div><div class="d">Monthly plan. Keep every promise.</div><div class="sla">Forever</div></div>
+  </div>
+  <div class="note">The two-week clock starts at stage 03 — payment received — never at the first chat.</div>
+  <div class="footer"><span>Sale → Onboarding SOP</span><span>02</span></div>
+</div>
+
+<!-- SLIDE 3 · STAGE 01 ENQUIRY -->
+<div class="slide">
+  <div class="eyebrow">Stage 01 / Enquiry</div>
+  <h2>Every enquiry gets a straight answer, same day.</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="card">
+        <h3>Qualify in three questions</h3>
+        <ul class="check">
+          <li>What does the business do, and where?</li>
+          <li>What's the website situation now — none, outdated, or underperforming?</li>
+          <li>What do they want more of? (jobs, bookings, calls, footfall)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>The honesty rule</h3>
+        <p>If a website genuinely won't help them, say so and walk away. Every honest "no" becomes a referral; every dishonest "yes" becomes a refund and a bad review.</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <h3>Channel discipline</h3>
+        <p><span class="accent">WhatsApp-first, always.</span> Initial enquiry stays in writing — it creates a record and suits the client. Offer a call once scope is clear, never as the opening move.</p>
+      </div>
+      <div class="card">
+        <h3>Red flags — decline politely</h3>
+        <ul class="check">
+          <li>Wants e-commerce/marketplace complexity at brochure prices</li>
+          <li>Won't provide business information or photos</li>
+          <li>Haggling below promo pricing — the price is the price</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><span>Sale → Onboarding SOP</span><span>03</span></div>
+</div>
+
+<!-- SLIDE 4 · STAGE 02 CLOSE -->
+<div class="slide">
+  <div class="eyebrow">Stage 02 / Close</div>
+  <h2>Quote, agreement, slot — in one message.</h2>
+  <div class="cols">
+    <div class="col">
+      <table>
+        <tr><th>Tier</th><th>Build</th><th>Monthly</th><th>Annual</th></tr>
+        <tr><td>Promo (5 slots)</td><td class="mono">£495</td><td class="mono">£29/mo</td><td class="mono">£290/yr</td></tr>
+        <tr><td>Standard</td><td class="mono">£850</td><td class="mono">£39/mo</td><td class="mono">£390/yr</td></tr>
+      </table>
+      <div class="note">Promo slot terms (in the agreement, not on the website): honest Google review + portfolio rights + footer credit. Say the standard price out loud so the discount is real.</div>
+      <div class="card" style="margin-top:5mm;">
+        <h3>After each promo-slot close</h3>
+        <p>Decrement <span class="mono accent">promo.slotsLeft</span> in site.ts — the banner, hero and pricing card all fall back to standard pricing automatically at 0.</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <h3>What gets sent to close</h3>
+        <ul class="check">
+          <li>summergill.co.uk link (the proof wall does the selling)</li>
+          <li>The one-page agreement — plain English, no legalese</li>
+          <li>Build invoice (stage 03) once they say yes</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Agreement must state</h3>
+        <ul class="check">
+          <li>Build fee + monthly amount + 12-month minimum, then 30 days' notice</li>
+          <li>Domain registered to the client. Always.</li>
+          <li>Monthly includes small content changes; bigger jobs get a fixed quote first</li>
+          <li>On exit: full site files + domain handed over, no fees</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><span>Sale → Onboarding SOP</span><span>04</span></div>
+</div>
+
+<!-- SLIDE 5 · STAGE 03 PAID -->
+<div class="slide">
+  <div class="eyebrow">Stage 03 / Getting paid</div>
+  <h2>No payment, no pixels.</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="card">
+        <h3>Build invoice — by bank transfer</h3>
+        <ul class="check">
+          <li>Issued by <strong>Rippers Golf Ltd t/a Summergill</strong></li>
+          <li>Sequential invoice number, company reg no., registered address</li>
+          <li>7-day terms · business account details on the invoice</li>
+          <li>No VAT line at all while unregistered (never write "VAT £0")</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Deposit policy</h3>
+        <p>Promo slots: 100% on agreement (low ticket, high trust). Standard rate: 50% to start, 50% at approval — before launch, never after.</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <h3>Monthly — GoCardless Direct Debit</h3>
+        <ul class="check">
+          <li>Mandate link sent at <strong>launch</strong>, with the handover message</li>
+          <li>First collection one month after launch</li>
+          <li>£29 / £39 subscription templates, trading name "Summergill" on statements</li>
+          <li>Fees ≈ 1% + 20p — monitor failed payments weekly, auto-retry handles most</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Annual upfront</h3>
+        <p>£290/£390 invoice by transfer — zero fees. Offer it at close; it protects cash flow and signals commitment.</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><span>Sale → Onboarding SOP</span><span>05</span></div>
+</div>
+
+<!-- SLIDE 6 · STAGE 04 INTAKE -->
+<div class="slide">
+  <div class="eyebrow">Stage 04 / Intake</div>
+  <h2>Collect everything once. Chase nothing twice.</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="card">
+        <h3>Business facts</h3>
+        <ul class="check">
+          <li>Exact trading name, address, opening hours</li>
+          <li>Every service + real prices (prices convert — push for them)</li>
+          <li>Phone numbers — confirm which is WhatsApp-capable</li>
+          <li>Email, socials, existing domain or domain preference</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Assets</h3>
+        <ul class="check">
+          <li>Photos: shopfront, work/before-afters, owner at work, logo/signage</li>
+          <li>Google reviews (copy the best verbatim — never edit, bracket if needed)</li>
+          <li>Google Business Profile access or at minimum the listing link</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <h3>One source of truth per client</h3>
+        <p>Everything lands in the client's <span class="mono accent">site.ts</span> data file — facts live in one place, components read from it. A price change is a one-line edit forever after.</p>
+      </div>
+      <div class="card">
+        <h3>Per-client folder (internal)</h3>
+        <ul class="check">
+          <li>Signed agreement + invoices</li>
+          <li>Intake answers + raw assets</li>
+          <li>Domain/registrar details, GoCardless mandate reference</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><span>Sale → Onboarding SOP</span><span>06</span></div>
+</div>
+
+<!-- SLIDE 7 · STAGE 05 BUILD -->
+<div class="slide">
+  <div class="eyebrow">Stage 05 / Build standards</div>
+  <h2>If it isn't portfolio-worthy, it doesn't ship.</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="card">
+        <h3>Every build includes</h3>
+        <ul class="check">
+          <li>Own private repo · Astro + Tailwind · site.ts data pattern</li>
+          <li>Mobile-first, verified at 375px — zero horizontal overflow</li>
+          <li>WhatsApp-first conversion tooling (prefilled messages, estimate/enquiry widget, sticky mobile bar where it fits)</li>
+          <li>LocalBusiness schema, sitemap, optimised images, og preview card, custom favicon</li>
+          <li><span class="accent">"Website by Summergill"</span> footer credit → summergill.co.uk</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <h3>Non-negotiables during build</h3>
+        <ul class="check">
+          <li><strong>noindex + robots Disallow until client approval</strong> — nothing unapproved gets indexed</li>
+          <li>Domain registered in the client's name from day one</li>
+          <li>No invented claims — every fact traceable to the client or a source</li>
+          <li>Real photos beat stock. Always ask before settling.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Pace</h3>
+        <p>Internally a build is fast. Externally it's "live within two weeks". Never reveal the real build time — the price buys the outcome and the years behind it, not the hours.</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><span>Sale → Onboarding SOP</span><span>07</span></div>
+</div>
+
+<!-- SLIDE 8 · STAGE 06-07 APPROVE & LAUNCH -->
+<div class="slide">
+  <div class="eyebrow">Stage 06–07 / Approval &amp; launch</div>
+  <h2>Sign-off in writing, then the launch checklist — in order.</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="card">
+        <h3>06 · Approval</h3>
+        <ul class="check">
+          <li>Walk the client through on their own phone first, then desktop</li>
+          <li>Confirm every fact: prices, hours, phone, claims (e.g. years of experience)</li>
+          <li>One revision round included — capture all corrections in one list</li>
+          <li>Written sign-off (WhatsApp message counts). No sign-off, no launch.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>07 · Handover message</h3>
+        <p>Send together: live link · GoCardless mandate link · what the monthly covers · how to request changes. Launch-day goodwill is the best moment for the mandate.</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <h3>07 · Launch checklist</h3>
+        <ul class="check">
+          <li>DNS → Vercel (A @ 76.76.21.21 · CNAME www) · bare domain primary, www 308</li>
+          <li>Flip noindex off + restore robots.txt Allow</li>
+          <li>Google Search Console: verify, submit sitemap, request indexing · repeat in Bing</li>
+          <li>Meta Sharing Debugger: scrape so WhatsApp previews work from share #1</li>
+          <li>Update client's Google Business Profile website link</li>
+          <li>GoCardless mandate confirmed · first collection date set</li>
+          <li>Test from a phone on mobile data: every CTA, the enquiry flow, the map</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><span>Sale → Onboarding SOP</span><span>08</span></div>
+</div>
+
+<!-- SLIDE 9 · STAGE 08 + 30 DAYS -->
+<div class="slide">
+  <div class="eyebrow">Stage 08 / First 30 days</div>
+  <h2>The first month decides whether they stay for years.</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="card">
+        <h3>Week 1</h3>
+        <ul class="check">
+          <li>Confirm indexing (site:domain in Google)</li>
+          <li>Fix anything the client spots — fast, without quibbling</li>
+          <li>Check first WhatsApp enquiries are landing</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Week 2–4</h3>
+        <ul class="check">
+          <li>Promo-slot clients: request the Google review (it's in the agreement)</li>
+          <li>Ask for a one-line testimonial while enthusiasm is high</li>
+          <li>First Direct Debit collection lands — verify it</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <h3>Feed the flywheel</h3>
+        <ul class="check">
+          <li>Add the build to the summergill.co.uk proof wall (3-viewport screenshots, device frames)</li>
+          <li>New niche? Spin up the "Websites for [trade]" spoke page</li>
+          <li>Decrement the promo slot counter</li>
+          <li>Ask: "Know anyone else who needs this?" — referral at peak satisfaction</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Measure</h3>
+        <p>Once analytics is added: one-line monthly note to the client — visits + WhatsApp clicks. A client who sees 31 enquiries never cancels a £29 plan.</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><span>Sale → Onboarding SOP</span><span>09</span></div>
+</div>
+
+<!-- SLIDE 10 · ONGOING CARE -->
+<div class="slide">
+  <div class="eyebrow">Ongoing / The care plan</div>
+  <h2>Monthly operations — what £29 actually obliges us to do.</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="card">
+        <h3>Standing duties</h3>
+        <ul class="check">
+          <li>Content change requests: acknowledged same day, done within 48h (fair-use ~30 min/month)</li>
+          <li>Hosting, SSL and uptime — Vercel handles it; we own noticing failures</li>
+          <li>Domain renewals — auto-renew on, card current, never let one lapse</li>
+          <li>Bigger requests: fixed quote in writing before any work</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Quarterly</h3>
+        <ul class="check">
+          <li>Check-in message per client — invites small changes, surfaces upsells</li>
+          <li>Screenshot refresh on the proof wall if sites have evolved</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <h3>Monthly admin (one sitting)</h3>
+        <ul class="check">
+          <li>Reconcile GoCardless payouts against the client list</li>
+          <li>Chase failed mandates immediately — politely, by WhatsApp</li>
+          <li>Log income for self-assessment · watch the £90k VAT threshold</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Exit protocol (the promise kept)</h3>
+        <ul class="check">
+          <li>After 12 months + 30 days' notice: export site files, transfer domain, hand over cleanly</li>
+          <li>No exit fees, no friction, no guilt-trip — departing clients still refer</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><span>Sale → Onboarding SOP</span><span>10</span></div>
+</div>
+
+<!-- SLIDE 11 · BUSINESS HYGIENE -->
+<div class="slide">
+  <div class="eyebrow">Always / Business hygiene</div>
+  <h2>Boring things that prevent expensive things.</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="card">
+        <h3>Records</h3>
+        <ul class="check">
+          <li>Per-client folder: agreement, invoices, intake, mandate ref</li>
+          <li>Sequential invoice numbering, no gaps</li>
+          <li>All income through the business account — never personal</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Security</h3>
+        <ul class="check">
+          <li>2FA on registrar, Vercel, GitHub, GoCardless, Google</li>
+          <li>Client credentials in a password manager, never in chat history</li>
+          <li>Git is the backup — every site restorable from the repo in minutes</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <h3>The promises are operational, not marketing</h3>
+        <p>Four public guarantees, each with an internal duty:</p>
+        <ul class="check">
+          <li><strong>Your domain, always</strong> → registered to the client at purchase, no exceptions</li>
+          <li><strong>Flat monthly</strong> → quote before work, every time, in writing</li>
+          <li><strong>Leave with everything</strong> → clean exports, graceful exits</li>
+          <li><strong>Quality non-negotiable</strong> → portfolio standard or it doesn't ship</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Review cadence</h3>
+        <p>Revisit pricing after client #5 (promotion ends) and this SOP every quarter. Version and date every change.</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><span>Sale → Onboarding SOP</span><span>11</span></div>
+</div>
+
+<!-- SLIDE 12 · BACK COVER -->
+<div class="slide cobalt">
+  <div class="eyebrow">Remember</div>
+  <div style="margin:auto 0;">
+    <h1 style="font-size:38pt; color:#fff;">The product is the website.<br>The business is the relationship.</h1>
+    <p style="margin-top:8mm; font-size:13pt; color:rgba(255,255,255,0.85); max-width:200mm; line-height:1.5;">Builds earn once. Care earns forever. Every promise kept is a referral; every referral skips the entire pipeline.</p>
+  </div>
+  <div class="display" style="font-size:16pt;">SUMMERGILL<span style="display:inline-block;width:8px;height:8px;background:#fff;margin-left:5px;"></span></div>
+  <div class="footer"><span>Internal only · V1.0 · June 2026</span><span>12</span></div>
+</div>
+
+</body>
+</html>

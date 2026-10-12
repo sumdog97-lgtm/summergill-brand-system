@@ -1,0 +1,64 @@
+/* Summergill — Swiss/engineered system. White, near-black, one cobalt.
+   Source: src/styles/global.css (@theme) */
+:root{
+  /* Base palette */
+  --color-paper:#ffffff;
+  --color-surface:#f5f5f3;
+  --color-ink:#0a0a0a;
+  --color-brand:#1d4ed8;
+  --color-brand-deep:#16389f;
+  --color-brand-soft:#9db4ff; /* accent text on dark — cobalt fails contrast on black */
+  --color-line:#e5e5e2;
+
+  /* Ink opacity ramp (Tailwind ink/NN used throughout the site) */
+  --ink-80:rgb(10 10 10 / .8);
+  --ink-75:rgb(10 10 10 / .75);
+  --ink-70:rgb(10 10 10 / .7);
+  --ink-65:rgb(10 10 10 / .65);
+  --ink-60:rgb(10 10 10 / .6);
+  --ink-55:rgb(10 10 10 / .55);
+  --ink-50:rgb(10 10 10 / .5);
+  --ink-45:rgb(10 10 10 / .45);
+  --ink-40:rgb(10 10 10 / .4);
+  --ink-20:rgb(10 10 10 / .2);
+  --ink-15:rgb(10 10 10 / .15);
+  --ink-07:rgb(10 10 10 / .07);
+
+  /* White opacity ramp (on ink / brand sections) */
+  --white-85:rgb(255 255 255 / .85);
+  --white-80:rgb(255 255 255 / .8);
+  --white-75:rgb(255 255 255 / .75);
+  --white-70:rgb(255 255 255 / .7);
+  --white-55:rgb(255 255 255 / .55);
+  --white-45:rgb(255 255 255 / .45);
+  --white-40:rgb(255 255 255 / .4);
+  --white-15:rgb(255 255 255 / .15);
+  --white-04:rgb(255 255 255 / .04);
+
+  /* Device frames (proof wall) */
+  --device-bezel:#111111;
+  --device-laptop:#0d0d0f;
+
+  /* Semantic aliases */
+  --surface-page:var(--color-paper);
+  --surface-alt:var(--color-surface);
+  --surface-inverse:var(--color-ink);
+  --surface-brand:var(--color-brand);
+  --surface-card-dark:var(--white-04);
+  --text-primary:var(--color-ink);
+  --text-body:var(--ink-70);
+  --text-muted:var(--ink-55);
+  --text-faint:var(--ink-45);
+  --text-on-dark:#ffffff;
+  --text-on-dark-body:var(--white-70);
+  --text-on-dark-muted:var(--white-55);
+  --text-accent:var(--color-brand);
+  --text-accent-on-dark:var(--color-brand-soft);
+  --border-hairline:var(--ink-15);
+  --border-input:var(--ink-20);
+  --border-on-dark:var(--white-15);
+  --border-strong:var(--color-ink);
+  --action-primary:var(--color-brand);
+  --action-primary-hover:var(--color-brand-deep);
+  --focus-ring:rgb(29 78 216 / .3);
+}

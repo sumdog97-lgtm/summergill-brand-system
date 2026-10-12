@@ -1,0 +1,67 @@
+<!-- @dsCard group="Website" viewport="1440x900" name="Marketing site" subtitle="summergill.co.uk one-pager, interactive" -->
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Summergill — Websites for Local Businesses, Done Properly</title>
+<link rel="icon" href="../../assets/favicon.svg">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+html{scroll-padding-top:6rem}
+.sg-container{max-width:1152px;margin:0 auto;padding-left:24px;padding-right:24px;box-sizing:border-box}
+.sg-sec{padding:112px 0}.sg-sec-about{padding:96px 0}
+.sg-hero{padding:192px 0 80px}
+.sg-h1{font-size:72px}
+.sg-desk{display:flex}.sg-mob,.sg-mob-block{display:none!important}
+.sg-xl{display:block}.sg-lg{display:block}
+.sg-proof{display:grid;grid-template-columns:1.35fr 1fr;align-items:center;gap:48px}
+.sg-proof-rev>*:first-child{order:2}
+.sg-price-grid{grid-template-columns:3fr 2fr}
+.sg-enq{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+@media (max-width:1279px){.sg-xl{display:none}}
+@media (max-width:1023px){.sg-lg{display:none}.sg-proof{grid-template-columns:1fr}.sg-proof-rev>*:first-child{order:0}.sg-price-grid{grid-template-columns:1fr}.sg-enq{grid-template-columns:1fr;gap:40px}.sg-check{grid-template-columns:1fr 1fr!important}}
+@media (max-width:767px){.sg-desk{display:none}.sg-mob{display:inline-flex!important}.sg-mob-block{display:block!important}}
+@media (max-width:639px){.sg-container{padding-left:16px;padding-right:16px}.sg-sec{padding:80px 0}.sg-sec-about{padding:80px 0}.sg-hero{padding:160px 0 64px}.sg-h1{font-size:48px}.sg-sm-up{display:none!important}.sg-grid3,.sg-check{grid-template-columns:1fr!important}.sg-stats{grid-template-columns:1fr 1fr!important}}
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script src="data.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="Header.jsx"></script>
+<script type="text/babel" src="Hero.jsx"></script>
+<script type="text/babel" src="Sections.jsx"></script>
+<script type="text/babel" src="Closing.jsx"></script>
+<script type="text/babel">
+function App() {
+  const [scrolled, setScrolled] = React.useState(false);
+  React.useEffect(() => {
+    const on = () => setScrolled(window.scrollY > 24);
+    on(); window.addEventListener('scroll', on, { passive: true });
+    return () => window.removeEventListener('scroll', on);
+  }, []);
+  const onNav = (e, href) => {
+    const el = document.querySelector(href);
+    if (!el) return;
+    e.preventDefault();
+    window.scrollTo({ top: href === '#top' ? 0 : el.getBoundingClientRect().top + window.scrollY - 96, behavior: 'smooth' });
+  };
+  return (
+    <>
+      <Header scrolled={scrolled} onNav={onNav} />
+      <main>
+        <Hero onNav={onNav} />
+        <Problem /><Proof /><Pricing /><Guarantee /><Process /><Faq /><About /><Enquire />
+      </main>
+      <Footer />
+    </>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
